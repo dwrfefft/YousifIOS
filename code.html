@@ -1,0 +1,403 @@
+        .spinner {
+            width: 32px;
+            height: 32px;
+            border: 3px solid var(--border-color);
+            border-top-color: var(--accent);
+            border-radius: 50%;
+            animation: spin 0.8s linear infinite;
+        }
+
+        @keyframes spin { to { transform: rotate(360deg); } }
+        @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+        @keyframes slideUp { from { opacity: 0; transform: translateY(30px); } to { opacity: 1; transform: translateY(0); } }
+
+        /* ===== FEATURED BANNER ===== */
+        .featured {
+            padding: 20px 24px;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .featured-banner {
+            background: linear-gradient(135deg, var(--bg-card), #1a1a3e);
+            border-radius: var(--radius-lg);
+            padding: 40px 48px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 32px;
+            border: 1px solid var(--border-color);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .featured-banner::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -20%;
+            width: 400px;
+            height: 400px;
+            background: radial-gradient(circle, rgba(108, 99, 255, 0.15), transparent);
+            pointer-events: none;
+        }
+
+        .featured-text h3 {
+            font-size: 24px;
+            font-weight: 800;
+            margin-bottom: 8px;
+        }
+
+        .featured-text p {
+            color: var(--text-secondary);
+            font-size: 15px;
+            max-width: 400px;
+        }
+
+        .featured-text .featured-badge {
+            display: inline-block;
+            padding: 4px 12px;
+            background: var(--accent-yellow);
+            color: #000;
+            font-size: 11px;
+            font-weight: 700;
+            border-radius: 4px;
+            margin-bottom: 12px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .featured-emoji {
+            font-size: 72px;
+            flex-shrink: 0;
+        }
+
+        /* ===== FOOTER ===== */
+        .footer {
+            padding: 48px 24px 24px;
+            max-width: 1400px;
+            margin: 0 auto;
+            border-top: 1px solid var(--border-color);
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1fr;
+            gap: 40px;
+            margin-bottom: 32px;
+        }
+
+        .footer-brand .logo { margin-bottom: 12px; }
+        .footer-brand p { color: var(--text-muted); font-size: 14px; max-width: 300px; line-height: 1.6; }
+
+        .footer-col h4 {
+            font-size: 14px;
+            font-weight: 600;
+            margin-bottom: 16px;
+            color: var(--text-primary);
+        }
+
+        .footer-col a {
+            display: block;
+            color: var(--text-muted);
+            text-decoration: none;
+            font-size: 14px;
+            padding: 4px 0;
+            transition: var(--transition);
+        }
+
+        .footer-col a:hover { color: var(--accent); }
+
+        .footer-bottom {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding-top: 20px;
+            border-top: 1px solid var(--border-color);
+            font-size: 13px;
+            color: var(--text-muted);
+        }
+
+        .footer-socials {
+            display: flex;
+            gap: 12px;
+        }
+
+        .footer-socials a {
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            background: var(--bg-secondary);
+            border: 1px solid var(--border-color);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-size: 16px;
+            transition: var(--transition);
+        }
+
+        .footer-socials a:hover {
+            background: var(--accent);
+            color: #fff;
+            border-color: var(--accent);
+        }
+
+        /* ===== RESPONSIVE ===== */
+        @media (max-width: 900px) {
+            .nav-links { display: none; }
+            .hamburger { display: flex; }
+            .search-box input { width: 160px; }
+            .search-box input:focus { width: 200px; }
+            .featured-banner { flex-direction: column; text-align: center; padding: 32px 24px; }
+            .featured-text p { max-width: 100%; }
+            .footer-grid { grid-template-columns: 1fr 1fr; gap: 24px; }
+        }
+
+        @media (max-width: 600px) {
+            .navbar { padding: 0 16px; }
+            .hero { padding: 100px 16px 40px; }
+            .games-section { padding: 16px; }
+            .categories { padding: 24px 16px 12px; }
+            .games-grid { grid-template-columns: repeat(2, 1fr); gap: 10px; }
+            .game-modal { padding: 12px; }
+            .game-modal-body { min-height: 300px; }
+            .game-modal-body iframe { min-height: 300px; }
+            .footer-grid { grid-template-columns: 1fr; }
+            .footer-bottom { flex-direction: column; gap: 16px; text-align: center; }
+            .search-box input { width: 120px; }
+            .search-box input:focus { width: 160px; }
+            .hero-stats { gap: 20px; }
+        }
+
+        @media (max-width: 400px) {
+            .games-grid { grid-template-columns: 1fr 1fr; gap: 8px; }
+            .game-card .info { padding: 8px 10px; }
+            .game-card .info h3 { font-size: 12px; }
+        }
+
+        /* ===== MOBILE MENU ===== */
+        .mobile-menu {
+            display: none;
+            position: fixed;
+            top: 64px;
+            left: 0;
+            right: 0;
+            background: var(--bg-nav);
+            backdrop-filter: blur(20px);
+            border-bottom: 1px solid var(--border-color);
+            padding: 20px 24px;
+            z-index: 999;
+        }
+
+        .mobile-menu.open { display: block; }
+
+        .mobile-menu a {
+            display: block;
+            padding: 12px 0;
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-size: 16px;
+            font-weight: 500;
+            border-bottom: 1px solid var(--border-color);
+            transition: var(--transition);
+        }
+
+        .mobile-menu a:last-child { border-bottom: none; }
+        .mobile-menu a:hover { color: var(--accent); }
+
+        /* ===== NO RESULTS ===== */
+        .no-results {
+            text-align: center;
+            padding: 60px 20px;
+            color: var(--text-muted);
+            grid-column: 1 / -1;
+        }
+
+        .no-results .icon { font-size: 48px; margin-bottom: 16px; }
+        .no-results h3 { font-size: 20px; margin-bottom: 8px; color: var(--text-secondary); }
+    </style>
+</head>
+<body>
+
+    <!-- ===== NAVBAR ===== -->
+    <nav class="navbar" id="navbar">
+        <div class="nav-left">
+            <a href="#" class="logo">
+                <div class="logo-icon">Y</div>
+                <span>YousifIOS</span>
+            </a>
+            <ul class="nav-links">
+                <li><a href="#" class="active" onclick="filterGames('all')">Home</a></li>
+                <li><a href="#" onclick="filterGames('all')">All Games</a></li>
+                <li><a href="#" onclick="filterGames('Action')">Action</a></li>
+                <li><a href="#" onclick="filterGames('Racing')">Racing</a></li>
+                <li><a href="#" onclick="filterGames('Puzzle')">Puzzle</a></li>
+            </ul>
+        </div>
+        <div class="nav-right">
+            <div class="search-box">
+                <span class="search-icon">🔍</span>
+                <input type="text" id="searchInput" placeholder="Search games..." oninput="searchGames(this.value)" />
+            </div>
+            <button class="hamburger" onclick="toggleMobileMenu()" aria-label="Toggle menu">
+                <span></span><span></span><span></span>
+            </button>
+        </div>
+    </nav>
+
+    <!-- ===== MOBILE MENU ===== -->
+    <div class="mobile-menu" id="mobileMenu">
+        <a href="#" onclick="closeMobileMenu(); filterGames('all')">Home</a>
+        <a href="#" onclick="closeMobileMenu(); filterGames('all')">All Games</a>
+        <a href="#" onclick="closeMobileMenu(); filterGames('Action')">Action</a>
+        <a href="#" onclick="closeMobileMenu(); filterGames('Racing')">Racing</a>
+        <a href="#" onclick="closeMobileMenu(); filterGames('Puzzle')">Puzzle</a>
+        <a href="#" onclick="closeMobileMenu(); filterGames('Sports')">Sports</a>
+        <a href="#" onclick="closeMobileMenu(); filterGames('Arcade')">Arcade</a>
+    </div>
+
+    <!-- ===== HERO ===== -->
+    <section class="hero">
+        <div class="hero-badge">🎮 100+ Free Games</div>
+        <h1>Welcome to <span>YousifIOS</span></h1>
+        <p>The ultimate gaming destination. Play hundreds of free online games instantly in your browser — no downloads, no hassle.</p>
+        <div class="hero-actions">
+            <button class="btn btn-primary" onclick="document.getElementById('gamesSection').scrollIntoView({behavior:'smooth'})">
+                ▶ Start Playing
+            </button>
+            <button class="btn btn-secondary" onclick="filterGames('popular')">
+                🔥 Trending Now
+            </button>
+        </div>
+        <div class="hero-stats">
+            <div class="hero-stat">
+                <div class="num">100+</div>
+                <div class="label">Games</div>
+            </div>
+            <div class="hero-stat">
+                <div class="num">Free</div>
+                <div class="label">To Play</div>
+            </div>
+            <div class="hero-stat">
+                <div class="num">No</div>
+                <div class="label">Downloads</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== FEATURED ===== -->
+    <section class="featured">
+        <div class="featured-banner">
+            <div class="featured-text">
+                <div class="featured-badge">🌟 Featured</div>
+                <h3>🏎️ Need for Speed?</h3>
+                <p>Check out our top racing games. Drift, race, and compete for the fastest time!</p>
+                <br />
+                <button class="btn btn-primary" onclick="filterGames('Racing')">🏁 Browse Racing Games</button>
+            </div>
+            <div class="featured-emoji">🏎️</div>
+        </div>
+    </section>
+
+    <!-- ===== CATEGORIES ===== -->
+    <section class="categories">
+        <div class="categories-header">
+            <h2>📂 Categories</h2>
+        </div>
+        <div class="category-scroll" id="categoryScroll">
+            <button class="category-chip active" data-cat="all" onclick="filterGames('all')">🔥 All</button>
+            <button class="category-chip" data-cat="Action" onclick="filterGames('Action')">⚔️ Action</button>
+            <button class="category-chip" data-cat="Racing" onclick="filterGames('Racing')">🏎️ Racing</button>
+            <button class="category-chip" data-cat="Puzzle" onclick="filterGames('Puzzle')">🧩 Puzzle</button>
+            <button class="category-chip" data-cat="Sports" onclick="filterGames('Sports')">⚽ Sports</button>
+            <button class="category-chip" data-cat="Arcade" onclick="filterGames('Arcade')">🕹️ Arcade</button>
+            <button class="category-chip" data-cat="Multiplayer" onclick="filterGames('Multiplayer')">👥 Multiplayer</button>
+            <button class="category-chip" data-cat="Strategy" onclick="filterGames('Strategy')">🧠 Strategy</button>
+            <button class="category-chip" data-cat="Classic" onclick="filterGames('Classic')">♟️ Classic</button>
+            <button class="category-chip" data-cat="popular" onclick="filterGames('popular')">🔥 Popular</button>
+        </div>
+    </section>
+
+    <!-- ===== GAMES GRID ===== -->
+    <section class="games-section" id="gamesSection">
+        <div class="games-section-header">
+            <h2 id="sectionTitle">🎮 All Games</h2>
+            <span class="count" id="gameCount">Loading...</span>
+        </div>
+        <div class="games-grid" id="gamesGrid">
+            <!-- Games rendered by JS -->
+        </div>
+    </section>
+
+    <!-- ===== GAME MODAL ===== -->
+    <div class="game-modal" id="gameModal">
+        <div class="game-modal-content">
+            <div class="game-modal-header">
+                <span class="game-title" id="modalTitle">Loading...</span>
+                <button class="close-btn" onclick="closeGame()">✕</button>
+            </div>
+            <div class="game-modal-body" id="modalBody">
+                <div class="loading-spinner" id="modalSpinner">
+                    <div class="spinner"></div>
+                    Loading game...
+                </div>
+                <iframe id="gameFrame" allowfullscreen="true" sandbox="allow-scripts allow-same-origin allow-forms allow-popups" style="display:none;"></iframe>
+            </div>
+        </div>
+    </div>
+
+    <!-- ===== FOOTER ===== -->
+    <footer class="footer">
+        <div class="footer-grid">
+            <div class="footer-brand">
+                <a href="#" class="logo">
+                    <div class="logo-icon">Y</div>
+                    <span>YousifIOS</span>
+                </a>
+                <p>Your ultimate destination for free online browser games. Play anytime, anywhere — no downloads required.</p>
+            </div>
+            <div class="footer-col">
+                <h4>Games</h4>
+                <a href="#" onclick="filterGames('Action')">Action</a>
+                <a href="#" onclick="filterGames('Racing')">Racing</a>
+                <a href="#" onclick="filterGames('Puzzle')">Puzzle</a>
+                <a href="#" onclick="filterGames('Sports')">Sports</a>
+                <a href="#" onclick="filterGames('Arcade')">Arcade</a>
+            </div>
+            <div class="footer-col">
+                <h4>Support</h4>
+                <a href="#">Contact</a>
+                <a href="#">FAQ</a>
+                <a href="#">Privacy Policy</a>
+                <a href="#">Terms of Service</a>
+            </div>
+            <div class="footer-col">
+                <h4>Company</h4>
+                <a href="#">About YousifIOS</a>
+                <a href="#">Careers</a>
+                <a href="#">Press Kit</a>
+                <a href="#">Advertise</a>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <span>&copy; 2026 YousifIOS. All rights reserved.</span>
+            <div class="footer-socials">
+                <a href="#" title="Twitter">𝕏</a>
+                <a href="#" title="Discord">💬</a>
+                <a href="#" title="YouTube">▶</a>
+                <a href="#" title="GitHub">⌘</a>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // ===== GAME DATABASE =====
+        const GAMES = [
+            // -- Racing --
+            { id: 1, name: 'Highway Traffic', cat: 'Racing', emoji: '🚗', embed: 'https://www.onlinegames.io/games/2022/unity/highway-traffic/index.html', rating: 4.5 },
+            { id: 2, name: 'Drift Hunters Pro', cat: 'Racing', emoji: '🏎️', embed: 'https://www.onlinegames.io/games/2022/unity/drift-hunters-pro/index.html', rating: 4.7 },
+            { id: 3, name: 'GTA Simulator', cat: 'Racing', emoji: '🚔', embed: 'https://www.onlinegames.io/games/2022/unity/gta-simulator/index.html', rating: 4.4 },
+            { id: 4, name: 'Moto X3M Pool Party', cat: 'Racing', emoji: '🏍️', embed: 'https://www.onlinegames.io/games/2022/unity/moto-x3m-pool-party/index.html', rating: 4.6 },
+            { id: 5, name: 'Mad
